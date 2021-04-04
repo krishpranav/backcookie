@@ -40,3 +40,26 @@ class elements:
     @staticmethod
     def go(value):
         print value
+    
+    @staticmethod
+    def close(value):
+        sys.exit(value)
+    
+    @staticmethod
+    def goip(valueIP):
+        try:
+            Iphost = socket.gethostbyname(valueIP)
+        except socket.gaierror:
+            Iphost = "None"
+        
+        return Iphost
+
+    
+    @staticmethod
+    def niceShell(text, state):
+        matches = [i for i in commands if i.startswith(text)]
+        if state < len(matches):
+            return matches[state]
+        else:
+            return None
+            
