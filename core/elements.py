@@ -62,4 +62,18 @@ class elements:
             return matches[state]
         else:
             return None
-            
+
+    @staticmethod
+    def checkOS():
+        if "linux" in sys.platform:
+            os.system("clear")
+            elements.go("Loading" + " " + elements.color["red"] + "backcookie" + elements.color["white"] + "...")
+            time.sleep(0.2)
+            pass
+        elif "win" in sys.platform:
+            os.system("cls")
+            elements.go("Currently there is no support for windows")
+        else:
+            pass
+        
+        
