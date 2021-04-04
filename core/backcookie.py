@@ -95,4 +95,18 @@ class Backcookie(object):
             except Exception as error:
                 elements.go(elements.color["redBold"] + "Error: " + elements.color['white'] + "%s" % error)
 
-    
+
+    def main(self):
+        elements.checkOS()
+        #options
+        parser = optparse.OptionParser("python" + " " + "%prog -u <<URL>> -c <<Cookie>>", version="1.0.2")
+        parser.add_option("-u", "--url", dest="Url", type="string", help="specify hostname to run on")
+        parser.add_option("-c", "--cookie", dest="Cookie", type="string", help="specify Cookie")
+        (options, args) = parser.parse_args()
+        host = options.Url
+        cookie = options.Cookie
+        if host and cookie:
+            self.shell(host, cookie)
+        else:
+            parser.print_help()
+            elements.close(0)
